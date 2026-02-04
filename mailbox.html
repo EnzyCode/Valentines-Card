@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="png" href="heart.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Jersey+25&family=Pixelify+Sans:wght@400..700&family=Playwrite+AU+TAS:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>You've got Mail!</title>
+    <style>
+        /* Body styling with gradient background and center alignment */
+        body{
+            background: linear-gradient(#87ceeb, #c2e59c);
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container for Aubrey and Pin Code sections */
+        .container{
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Styling for Aubrey card */
+        .quacksie{
+            background: #FDC673;
+            border: 6px solid #AF5000;
+            border-radius: 10px;
+            padding: 20px;
+            width: 220px;
+            box-shadow: 5px 10px 0 #6b4226;
+            text-align-last: center;
+        }
+
+        /* Styling for Aubrey's image */
+        .quacksie img{
+            width: 200px;
+            height: 200px;
+            border: 4px solid #AF5000;
+            background: #FEFEFE;
+            border-radius: 10px;
+        }
+
+        /* Text section inside Aubrey card */
+        .quacksie-text{
+            margin-top: 14px;
+            font-family: "Jersey 25", sans-serif;
+            font-size: 20px;
+            color: #2C191F;
+            line-height: 1.6;
+        }
+
+        /* Pin code container styling */
+        .pin-container{
+            background: #FDC673;
+            border: 6px solid #AF5000;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 5px 10px 0 #6b4226;
+            text-align: center;
+        }
+
+        /* Header styling inside pin container */
+        h2{
+            font-size: 30px;
+            font-family: "Jersey 25", sans-serif;
+            margin-bottom: 10px;
+            color: #2C191F;
+        }
+
+        /* Layout for the 4 PIN input boxes */
+        .pin-code{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 18px;
+        }
+
+        /* Styling for each PIN input box */
+        .pin-code input{
+            width: 50px;
+            height: 50px;
+            background: #FEFEFE;
+            border: 3px solid #8b5a2b;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Keypad layout styling */
+        .keypad{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        /* Keypad button styling */
+        .keypad button{
+            height: 40px;
+            font-size: 25px;
+            font-family: "Jersey 25", sans-serif;
+            background: #c68642;
+            border: 3px solid #8b5a2b;
+            box-shadow: 0 5px 0 #6b4226;
+            border-radius: 10px;
+            color: #2C191F;
+            cursor: pointer;
+        }
+
+        /* Button press animation */
+        .keypad button:active{
+            box-shadow: none;
+            transform: translateY(4px);
+        }
+
+        /* Empty placeholder button for layout alignment */
+        .empty{
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        /* ENTER button styling */
+        .enter{
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            font-size: 25px;
+            font-family: "Jersey 25",sans-serif;
+            background: #00FE00;
+            border: 5px solid #3a7d3a;
+            box-shadow: 0 5px 0 #2f5f2f;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .enter:active{
+            box-shadow: none;
+            transform: translateY(4px);
+        }
+
+        /* Display result messages below PIN input */
+        .result{
+            margin-top: 15px;
+            font-size: 20px;
+            font-family: "Jersey 25", sans-serif;
+            color: #2C191F;
+            min-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Aubrey Card Section -->
+        <div class="quacksie">
+            <img src="Quacksie Final.png" alt="Quacksie">
+            <div class="quacksie-text">
+                <h1>Hi Ate Aubrey!</h1>
+                <p>You've Received A Letter!</p>
+            </div>
+        </div>
+
+        <!-- Mailbox PIN Code Section -->
+        <div class="pin-container">
+            <h2>📫 MAILBOX PIN</h2>
+
+            <!-- 4-digit PIN inputs -->
+            <div class="pin-code">
+                <input type="password" disabled>
+                <input type="password" disabled>
+                <input type="password" disabled>
+                <input type="password" disabled>
+            </div>
+
+            <!-- Number keypad -->
+            <div class="keypad">
+                <button onclick="addPin(1)">1</button>
+                <button onclick="addPin(2)">2</button>
+                <button onclick="addPin(3)">3</button>
+                <button onclick="addPin(4)">4</button>
+                <button onclick="addPin(5)">5</button>
+                <button onclick="addPin(6)">6</button>
+                <button onclick="addPin(7)">7</button>
+                <button onclick="addPin(8)">8</button>
+                <button onclick="addPin(9)">9</button>
+
+                <!-- Empty space for alignment -->
+                <div class="empty"></div>
+                <button onclick="addPin(0)">0</button>
+                <button onclick="removePin()">Del</button>
+            </div>
+
+            <!-- ENTER button to submit PIN -->
+            <button class="enter" onclick="enterPin()">ENTER</button>
+
+            <!-- Result message area -->
+            <div class="result" id="result"> </div>
+        </div>
+    </div>
+
+<script>
+    // Select all PIN input boxes
+    const inputs = document.querySelectorAll('.pin-code input');
+
+    // Correct PIN for mailbox
+    const MAILBOX_PIN = "0424";
+
+    // Current index for input
+    let index = 0;
+
+    // Function to add a digit to the PIN input
+    function addPin(num){
+        if (index < inputs.length){
+            inputs[index].value = num;
+            index++;
+        }
+    }
+
+    // Function to remove the last entered digit
+    function removePin(){
+        if (index > 0){
+            index--;
+            inputs[index].value = '';
+        }
+    }
+
+    // Function to check PIN and display result
+    function enterPin(){
+        // Combine all inputs into one string
+        const pin = Array.from(inputs).map(i => i.value).join('');
+        const result = document.getElementById('result');
+
+        // Check if PIN is complete
+        if (pin.length < 4){
+            result.textContent = "❌ Enter Pin First!";
+            return;
+        }
+
+        // Check if PIN matches
+        if (pin === MAILBOX_PIN){
+            result.textContent = "✅ Mailbox Unlocked!";
+            // Redirect to loveletter.html after 1 second
+            setTimeout(() =>{
+                window.location.href = "invite.html";
+            }, 1000);
+        } else{
+            result.textContent = "❌ Wrong Pin Code";
+            resetPin();
+        }
+    }
+
+    // Reset PIN inputs and index
+    function resetPin(){
+        inputs.forEach(i => i.value = ''); // Clear all input boxes
+        index = 0; // Reset index to start
+    }
+</script>
+</body>
+</html>

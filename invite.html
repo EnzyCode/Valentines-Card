@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="png" href="heart.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Jersey+25&family=Pixelify+Sans:wght@400..700&family=Playwrite+AU+TAS:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>To: Bubby</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(#87ceeb, #b7e4c7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .invite{
+            background-color: #FDC673;
+            border: 6px solid #AF5000;
+            padding: 30px;
+            text-align: center;
+            width: 420px;
+            box-shadow: 5px 10px 0px #5a3e2b;
+            border-radius: 10px;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+        }
+
+        .enzy img{
+            width: 100px;
+            height: 100px;
+        }
+
+        .heart img{
+            width: 25px;
+            height: 25px;
+            margin-top: 50px;
+        }
+
+        .aubrey img{
+            width: 100px;
+            height: 100px;
+        }
+
+        h1{
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #2C191F;
+            font-family: "Jersey 25",sans-serif;
+        }
+
+        p{
+            font-size: 25px;
+            font-family: "Jersey 25", sans-serif;
+            margin-bottom: 25px;
+            color: #2C191F;
+        }
+
+        .btn{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button{
+            font-size: 25px;
+            padding: 10px 10px;
+            font-family: "Jersey 25", sans-serif;
+            color: #2C191F;
+            border: 5px solid #009000;
+            box-shadow: 0 5px 0 #006a00;
+            background-color: #00FE00;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #810102;
+            color: white;
+
+        }
+
+        #message{
+            margin-top: 20px;
+            font-family: "Jersey 25", sans-serif;
+            font-size: 20px;
+            color: #2a9d8f;
+        }
+    </style>
+</head>
+<body>
+    <div class="invite">
+        <h1>Lady Aubrey Ordoño Carson 💖</h1>
+        <div class="icon">
+            <div class="enzy"><img src="SV Enzy.png"></div>
+            <div class="heart"><img src="heart.png"></div>
+            <div class="aubrey"><img src="SV Aubrey.png"></div>
+        </div>
+        <p>💕 Will You Be My Valentine? 💕</p>
+        <div class="btn">
+            <button onclick="sayYes()">YES 💘</button>
+            <button id="noBtn" onmouseover="moveNo()">NO 💔</button>
+        </div>
+        <div id="message"></div>
+    </div>
+    <script>
+        function sayYes(){
+            document.getElementById("message").innerHTML = "Happy Valentine's Day Bubby! Now Opening The Letter!";
+            setTimeout(() =>{
+                window.location.href = "loveletter.html";
+            }, 1000);
+        }
+
+        function moveNo(){
+            const btn = document.getElementById("noBtn");
+            const x = Math.random() * 300 - 100;
+            const y = Math. random() * 300 - 100;
+            btn.style.transform =  `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+</html>
